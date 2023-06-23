@@ -1,4 +1,3 @@
-# Add binaries folder 
 PATH="$HOME/box/binaries/:$PATH"
 PATH="/usr/local/bin:$PATH"
 
