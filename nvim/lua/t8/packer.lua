@@ -29,8 +29,6 @@ return require('packer').startup(function(use)
         ts_update()
     end,}
   use("nvim-treesitter/playground")
-  -- use("theprimeagen/harpoon")
-  use("theprimeagen/refactoring.nvim")
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
   use("nvim-treesitter/nvim-treesitter-context");

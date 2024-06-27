@@ -1,6 +1,10 @@
 ---
-"pane_group:navigate_up": none
-"editor_view:add_cursor_below": alt-cmd-down
-"terminal:ask_ai_assistant": none
+"workspace:toggle_ai_assistant": none
 "pane_group:navigate_down": none
+"input:open_completion_suggestions": ctrl-space
+"pane_group:navigate_up": none
+"terminal:ask_ai_assistant": none
+"editor_view:insert_autosuggestion": tab
+"input:search_command_history": ctrl-alt-up
+"editor_view:add_cursor_below": alt-cmd-down
 "editor_view:add_cursor_above": alt-cmd-up
