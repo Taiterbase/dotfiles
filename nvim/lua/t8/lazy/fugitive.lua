@@ -2,6 +2,8 @@ return {
     "tpope/vim-fugitive",
     config = function()
         vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+        vim.api.nvim_set_keymap('n', '<Leader>gy', ':.GBrowse!<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('x', '<Leader>gy', ":GBrowse!<CR>", { noremap = true, silent = true })
 
         local t8_Fugitive = vim.api.nvim_create_augroup("t8_Fugitive", {})
 
