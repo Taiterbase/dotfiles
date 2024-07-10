@@ -203,7 +203,6 @@ return {
                 -- instead of relying on nvim autocmd events.
                 window = {
                     mappings = {
-                        ["\\"] = "close_window",
                         ["<bs>"] = "navigate_up",
                         ["."] = "set_root",
                         ["H"] = "toggle_hidden",
@@ -282,7 +281,8 @@ return {
             }
         })
 
-        vim.keymap.set("n", "\\", ":Neotree toggle<CR>")
+        vim.keymap.set("n", "<leader>\\", ":Neotree close<CR>")
+        vim.keymap.set("n", "\\", ":Neotree reveal<CR>")
     end
 
 }

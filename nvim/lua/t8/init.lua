@@ -25,7 +25,7 @@ autocmd("TextYankPost", {
 })
 
 autocmd("LspAttach", {
-    group = augroup("t8", {}),
+    group = augroup("LspStart", {}),
     callback = function(e)
         local opts = { buffer = e.buf }
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -41,3 +41,10 @@ autocmd("LspAttach", {
     end
 })
 
+autocmd("BufWritePre", {
+    pattern = "*.go",
+    callback = function()
+        require('go.format').goimports()
+    end,
+    group = augroup("goimports", {}),
+})
