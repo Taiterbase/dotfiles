@@ -1,6 +1,7 @@
 require("t8.remap")
 require("t8.set")
 require("t8.lazy_init")
+require("gitlinker").setup()
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
@@ -48,3 +49,66 @@ autocmd("BufWritePre", {
     end,
     group = augroup("goimports", {}),
 })
+
+autocmd("BufWritePre", {
+    pattern = "*.lua",
+    callback = function()
+        vim.lsp.buf.format()
+    end,
+    group = augroup("lua_format", {}),
+})
+
+autocmd("BufWritePre", {
+    pattern = "*.rs",
+    callback = function()
+        vim.lsp.buf.format()
+    end,
+    group = augroup("rustfmt", {}),
+})
+
+autocmd("BufWritePre", {
+    pattern = "*.py",
+    callback = function()
+        vim.lsp.buf.format()
+    end,
+    group = augroup("black", {}),
+})
+
+autocmd("BufWritePre", {
+    pattern = "*.tf",
+    callback = function()
+        vim.lsp.buf.format()
+    end,
+    group = augroup("terraform_fmt", {}),
+})
+
+local function set_cursor()
+    vim.opt.guicursor = {
+        'n-v-c:block-Cursor/lCursor',
+        'i-ci-ve:ver25-Cursor/lCursor',
+        'r-cr:hor20',
+        'o:hor50'
+    }
+
+    if vim.env.TERM_PROGRAM == "WarpTerminal" then
+        vim.api.nvim_create_autocmd({ "VimEnter", "VimResume" }, {
+            callback = function()
+                vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
+            end
+        })
+        vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
+            callback = function()
+                vim.opt.guicursor = "a:ver25"
+            end
+        })
+    else
+        vim.opt.termguicolors = true
+        vim.cmd [[
+      let &t_SI = "\e[6 q"
+      let &t_SR = "\e[4 q"
+      let &t_EI = "\e[2 q"
+    ]]
+    end
+end
+
+set_cursor()
