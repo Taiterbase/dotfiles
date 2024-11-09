@@ -5,6 +5,6 @@
 "pane_group:navigate_up": none
 "terminal:ask_ai_assistant": none
 "editor_view:insert_autosuggestion": tab
-"input:search_command_history": ctrl-alt-up
-"editor_view:add_cursor_below": alt-cmd-down
-"editor_view:add_cursor_above": alt-cmd-up
+"input:search_command_history": ctrl-cmd-up
+"editor_view:add_cursor_below": ctrl-alt-down
+"editor_view:add_cursor_above": ctrl-alt-up
