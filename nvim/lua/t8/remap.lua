@@ -1,13 +1,6 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.api.nvim_set_keymap('n', '<Tab>', ':tabnext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-M-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-M-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-M-Up>', ':resize -2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-M-Down>', ':resize +2<CR>', { noremap = true, silent = true })
-
+vim.keymap.set('n', '<S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<M-j>", ":m .+1<CR>==")
@@ -16,6 +9,10 @@ vim.keymap.set("v", "<M-S-j>", ":'<,'>t'<-1<CR>gv=gv<Esc>")
 vim.keymap.set("v", "<M-S-k>", ":'<,'>t'<+1<CR>gv=gv<Esc>")
 vim.keymap.set("n", "<M-S-j>", ":t.<CR>==")
 vim.keymap.set("n", "<M-S-k>", ":t-1.<CR>==")
+vim.keymap.set('n', '<C-M-h>', ':vertical resize -2<CR>')
+vim.keymap.set('n', '<C-M-l>', ':vertical resize +2<CR>')
+vim.keymap.set('n', '<C-M-j>', ':resize -2<CR>')
+vim.keymap.set('n', '<C-M-k>', ':resize +2<CR>')
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
