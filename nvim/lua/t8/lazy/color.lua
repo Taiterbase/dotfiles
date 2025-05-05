@@ -4,8 +4,8 @@ return {
         name = "rose-pine",
         config = function()
             require("rose-pine").setup({
-                variant = "auto",      -- auto, main, moon, or dawn
-                dark_variant = "main", -- main, moon, or dawn
+                variant = "moon",      -- auto, main, moon, or dawn
+                dark_variant = "moon", -- main, moon, or dawn
                 dim_inactive_windows = false,
                 extend_background_behind_borders = true,
 
@@ -54,7 +54,7 @@ return {
 
                 highlight_groups = {
                     -- Comment = { fg = "foam" },
-                    -- VertSplit = { fg = "muted", bg = "muted" },
+                    VertSplit = { fg = "muted", bg = "muted" },
                 },
 
                 before_highlight = function(group, highlight, palette)

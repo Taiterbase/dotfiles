@@ -1,4 +1,9 @@
-vim.opt.guicursor = ""
+vim.opt.guicursor = {
+    "n-v-c:block",   -- Normal/visual/command: solid block
+    "i-ci-ve:ver25", -- Insert: vertical bar
+    "r-cr:hor20",    -- Replace: horizontal bar
+    "o:hor50"        -- Operator-pending: horizontal bar
+}
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

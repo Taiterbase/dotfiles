@@ -14,6 +14,7 @@ local autocmd = vim.api.nvim_create_autocmd
 vim.filetype.add({
     extension = {
         templ = 'templ',
+        mdx = 'mdx',
     },
 })
 
@@ -37,8 +38,8 @@ autocmd("LspAttach", {
         vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
+        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
 
@@ -81,34 +82,3 @@ autocmd("BufWritePre", {
     end,
     group = augroup("terraform_fmt", {}),
 })
-
-local function set_cursor()
-    vim.opt.guicursor = {
-        'n-v-c:block-Cursor/lCursor',
-        'i-ci-ve:ver25-Cursor/lCursor',
-        'r-cr:hor20',
-        'o:hor50'
-    }
-
-    if vim.env.TERM_PROGRAM == "WarpTerminal" then
-        vim.api.nvim_create_autocmd({ "VimEnter", "VimResume" }, {
-            callback = function()
-                vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
-            end
-        })
-        vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
-            callback = function()
-                vim.opt.guicursor = "a:ver25"
-            end
-        })
-    else
-        vim.opt.termguicolors = true
-        vim.cmd [[
-      let &t_SI = "\e[6 q"
-      let &t_SR = "\e[4 q"
-      let &t_EI = "\e[2 q"
-    ]]
-    end
-end
-
-set_cursor()
